@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apirovan <apirovan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 19:30:14 by apirovan          #+#    #+#             */
-/*   Updated: 2022/08/01 14:40:25 by apirovan         ###   ########.fr       */
+/*   Created: 2022/08/01 11:06:38 by apirovan          #+#    #+#             */
+/*   Updated: 2022/08/01 13:10:36 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+t_list	*ft_lstnew(void *content)
 {
-	int		i;
+	t_list	*new;
 
-	i = -1;
-	while (str[++i] != (char)c)
-	{
-		if (str[i] == 0)
-			return (NULL);
-	}
-	return ((char *)&str[i]);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
-
-// int	main(void)
-// {
-// 	const char *s = "salut la mif";
-//
-// 	printf("%s\n", ft_strchr(s, 't'));
-// }	

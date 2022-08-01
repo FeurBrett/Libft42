@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 14:36:30 by apirovan          #+#    #+#             */
-/*   Updated: 2022/07/27 14:38:09 by apirovan         ###   ########.fr       */
+/*   Updated: 2022/08/01 09:38:19 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ char	*ft_strnstr(const char	*big, const char	*small, size_t	len )
 	size_t	j;
 	char	*big_str;
 
-	j = 0;
 	i = 0;
 	big_str = (char *)big;
 	if (ft_strlen(small) == 0)
 		return (big_str);
 	while (big_str[i] && i < len)
 	{
+		j = 0;
 		while (small[j] == big_str[i + j] && i + j < len)
 		{
 			if (small[j + 1] == '\0')

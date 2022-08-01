@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apirovan <apirovan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 19:30:14 by apirovan          #+#    #+#             */
-/*   Updated: 2022/08/01 14:40:25 by apirovan         ###   ########.fr       */
+/*   Created: 2022/08/01 13:38:45 by apirovan          #+#    #+#             */
+/*   Updated: 2022/08/01 13:45:31 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		i;
+	t_list	*last;
 
-	i = -1;
-	while (str[++i] != (char)c)
+	if (!lst)
+		return (NULL);
+	while (lst)
 	{
-		if (str[i] == 0)
-			return (NULL);
+		last = lst;
+		lst = lst->next;
 	}
-	return ((char *)&str[i]);
+	return (last);
 }
-
-// int	main(void)
-// {
-// 	const char *s = "salut la mif";
-//
-// 	printf("%s\n", ft_strchr(s, 't'));
-// }	

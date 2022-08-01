@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apirovan <apirovan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 19:30:14 by apirovan          #+#    #+#             */
-/*   Updated: 2022/08/01 14:40:25 by apirovan         ###   ########.fr       */
+/*   Created: 2022/08/01 13:47:46 by apirovan          #+#    #+#             */
+/*   Updated: 2022/08/01 13:57:34 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-char	*ft_strchr(const char *str, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
+	t_list	*tmp;
 
-	i = -1;
-	while (str[++i] != (char)c)
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else if (lst && *lst)
 	{
-		if (str[i] == 0)
-			return (NULL);
+		tmp = *lst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
-	return ((char *)&str[i]);
 }
-
-// int	main(void)
-// {
-// 	const char *s = "salut la mif";
-//
-// 	printf("%s\n", ft_strchr(s, 't'));
-// }	

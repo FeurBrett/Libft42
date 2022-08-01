@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apirovan <apirovan@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 11:46:38 by apirovan          #+#    #+#             */
-/*   Updated: 2022/08/01 14:51:49 by apirovan         ###   ########.fr       */
+/*   Created: 2022/08/01 13:32:44 by apirovan          #+#    #+#             */
+/*   Updated: 2022/08/01 13:36:30 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (str[i])
+	while (lst)
 	{
-		if ((unsigned char)str[i] == (unsigned char)c)
-			j = i;
 		i++;
+		lst = lst->next;
 	}
-	if (j > 0 || (unsigned char)str[0] == (unsigned char)c)
-		return ((char *)&str[j]);
-	if (str[i] == 0 && c == 0)
-		return ((char *)&str[i]);
-	return (NULL);
+	return (i);
 }
-
-// int	main(void)
-// {
-// 	const char *s = "abbbbbbbbb";
-
-// 	printf("%s\n", ft_strrchr(s, 'a'));
-// }	
